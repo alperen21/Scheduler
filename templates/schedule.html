@@ -1,0 +1,412 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+    #flex-box{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        color:white;
+    }
+    #box-1{
+        width:33%;
+    }
+    #box-2{
+        margin-top: 8px;
+        width:33%;
+    }
+    tr{
+        height:80px;
+    }
+</style>
+{% if all_schedules %}
+    {% for schedule in all_schedules %}
+    <div>
+    <br>
+    <div id = "flex-box">
+        <div id = "box-1">
+            <h1>Schedule Alternative</h1>
+        </div>
+        <div id = "box-2">
+            <button class="btn btn-success">Copy CRNs</button>
+        </div>
+    </div>
+    <div>
+        <table id="schedule" class="table table-dark">
+            <tbody>
+            <tr>
+                <th></th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+            <tr>
+                <td >08:40</td>
+
+                <td>
+                {% if schedule[101] %}
+                <p class="btn btn-info">{{schedule[101]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[201] %}
+                    <p class="btn btn-info">{{schedule[201]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[301] %}
+                    <p class="btn btn-info">{{schedule[301]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[401] %}
+                    <p class="btn btn-info">{{schedule[401]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[501] %}
+                    <p class="btn btn-info">{{schedule[501]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>09:40</td>
+                <td>
+                {% if schedule[102] %}
+                <p class="btn btn-info">{{schedule[102]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[202] %}
+                    <p class="btn btn-info">{{schedule[202]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[302] %}
+                    <p class="btn btn-info">{{schedule[302]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[402] %}
+                    <p class="btn btn-info">{{schedule[402]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[502] %}
+                    <p class="btn btn-info">{{schedule[502]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>10:40</td>
+                <td>
+                {% if schedule[103] %}
+                <p class="btn btn-info">{{schedule[103]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[203] %}
+                    <p class="btn btn-info">{{schedule[203]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[303] %}
+                    <p class="btn btn-info">{{schedule[303]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[403] %}
+                    <p class="btn btn-info">{{schedule[403]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[503] %}
+                    <p class="btn btn-info">{{schedule[503]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>11:40</td>
+                <td>
+                {% if schedule[104] %}
+                <p class="btn btn-info">{{schedule[104]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[204] %}
+                    <p class="btn btn-info">{{schedule[204]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[304] %}
+                    <p class="btn btn-info">{{schedule[304]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[404] %}
+                    <p class="btn btn-info">{{schedule[404]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[504] %}
+                    <p class="btn btn-info">{{schedule[504]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>12:40</td>
+                <td>
+                {% if schedule[105] %}
+                <p class="btn btn-info">{{schedule[105]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[205] %}
+                    <p class="btn btn-info">{{schedule[205]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[305] %}
+                    <p class="btn btn-info">{{schedule[305]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[405] %}
+                    <p class="btn btn-info">{{schedule[405]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[505] %}
+                    <p class="btn btn-info">{{schedule[505]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>13:40</td>
+                <td>
+                {% if schedule[106] %}
+                <p class="btn btn-info">{{schedule[106]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[206] %}
+                    <p class="btn btn-info">{{schedule[206]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[306] %}
+                    <p class="btn btn-info">{{schedule[306]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[406] %}
+                    <p class="btn btn-info">{{schedule[406]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[506] %}
+                    <p class="btn btn-info">{{schedule[506]}}</p>
+                {% endif %}
+                </td>
+                <td class="class-cell make-available"></td>
+            </tr>
+            <tr>
+                <td>14:40</td>
+                <td>
+                {% if schedule[107] %}
+                <p class="btn btn-info">{{schedule[107]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[207] %}
+                    <p class="btn btn-info">{{schedule[207]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[307] %}
+                    <p class="btn btn-info">{{schedule[307]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[407] %}
+                    <p class="btn btn-info">{{schedule[407]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[507] %}
+                    <p class="btn btn-info">{{schedule[507]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>15:40</td>
+                <td>
+                {% if schedule[108] %}
+                <p class="btn btn-info">{{schedule[108]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[208] %}
+                    <p class="btn btn-info">{{schedule[208]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[308] %}
+                    <p class="btn btn-info">{{schedule[308]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[408] %}
+                    <p class="btn btn-info">{{schedule[408]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[508] %}
+                    <p class="btn btn-info">{{schedule[508]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>16:40</td>
+                <td>
+                {% if schedule[109] %}
+                <p class="btn btn-info">{{schedule[109]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[209] %}
+                    <p class="btn btn-info">{{schedule[209]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[309] %}
+                    <p class="btn btn-info">{{schedule[309]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[409] %}
+                    <p class="btn btn-info">{{schedule[409]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[509] %}
+                    <p class="btn btn-info">{{schedule[509]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>17:40</td>
+                <td>
+                {% if schedule[110] %}
+                <p class="btn btn-info">{{schedule[110]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[210] %}
+                    <p class="btn btn-info">{{schedule[210]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[310] %}
+                    <p class="btn btn-info">{{schedule[310]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[410] %}
+                    <p class="btn btn-info">{{schedule[410]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[510] %}
+                    <p class="btn btn-info">{{schedule[510]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>18:40</td>
+                <td>
+                {% if schedule[111] %}
+                <p class="btn btn-info">{{schedule[111]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[211] %}
+                    <p class="btn btn-info">{{schedule[211]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[311] %}
+                    <p class="btn btn-info">{{schedule[311]}}</p>
+                {% endif %}
+                </td>
+
+                <td>
+                {% if schedule[411] %}
+                    <p class="btn btn-info">{{schedule[411]}}</p>
+                {% endif %}
+                </td>
+                <td>
+                {% if schedule[511] %}
+                    <p class="btn btn-info">{{schedule[511]}}</p>
+                {% endif %}
+                </td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    {% endfor %}
+
+{% else %}
+{% endif %}
+
+
+
+{% endblock body %}
+<!--<style>
+    #schedule{
+        border: 2px black solid;
+        border-collapse: collapse;
+    }
+    th{
+        border:2px black solid;
+    }
+    td{
+        border:2px black solid;
+    }
+</style>-->
