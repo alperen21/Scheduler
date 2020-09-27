@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block body %}
+<style>
+    #form-schedule{
+        position:absolute;
+        top:38%;
+        left:41%;
+    }
+    #index-button{
+        position:absolute;
+        top:50%;
+        left:45%;
+    }
+    #schedule-index-text{
+        position: absolute;
+        color:white;
+        top:30%;
+        left:41.5%;
+    }
+</style>
+<div id="schedule-index-text">
+    <h1>Scheduler</h1>
+</div>
+<form method="post">
+    <div id="form-schedule">
+        <dl>
+            {{ render_field(form.lectures) }}
+        </dl>
+    </div>
+    <div id="index-button">
+        <button class="btn btn-info">Schedule</button>
+    </div>
+</form>
+
+{% endblock body %}

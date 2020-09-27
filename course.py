@@ -7,6 +7,10 @@ class CourseClass:
     def __init__(self,info):
         self.info = info
 
+def prettify(course_name):
+    course_name_list = course_name.split("_")
+    return course_name_list[0].upper() + " " + course_name_list[1]
+    
 def get(course):
 
     url = "http://sabancicourseapi.pythonanywhere.com/course/" + course
@@ -162,6 +166,7 @@ def schedule_translate(all_schedule,crn_dict):
         schedule = list(schedule)
         for lecture in schedule:
             lecture_name = crn_dict[lecture[-1]["crn"]]
+            lecture_name = prettify(lecture_name)
             crn_list.append(lecture[-1]["crn"])
             lecture_time_list = time(lecture)
 
