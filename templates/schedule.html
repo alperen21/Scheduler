@@ -19,6 +19,9 @@
     tr{
         height:80px;
     }
+    .collapse{
+        color:black;
+    }
 </style>
 {% if all_schedules %}
     {% for schedule in all_schedules %}
@@ -29,7 +32,14 @@
             <h1>Schedule Alternative</h1>
         </div>
         <div id = "box-2">
-            <button class="btn btn-success">View the CRNs</button>
+            <button class="btn btn-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false">View the CRNs</button>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+            {% for crn in schedule["crns"] %}
+            <h5>{{crn}}</h5>
+            {% endfor %}
+            </div>
         </div>
     </div>
     <div>
