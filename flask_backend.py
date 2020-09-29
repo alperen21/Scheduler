@@ -24,10 +24,9 @@ def schedules():
 
     if "selected_lectures" in session:
         selected_lectures = session["selected_lectures"]
-        selected_lecture_list = selected_lectures.split(",")
 
-    all_schedules = course.create_schedules(selected_lecture_list)
-    return render_template("schedule.html",all_schedules = all_schedules)
+    all_schedules = course.create_schedules(selected_lectures)
+    return render_template("schedule.html",all_schedules=all_schedules)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,6 +2,7 @@ import requests
 import course
 import itertools
 from collections import Counter
+import numpy as np
 
 class CourseClass:
     def __init__(self,info):
@@ -93,69 +94,7 @@ def get_all_crn(course_list):
 
 def schedule_translate(all_schedule,crn_dict):
     
-    display_schedule = {
-    101:"",
-    102:"",
-    103:"",
-    104:"",
-    105:"",
-    106:"",
-    107:"",
-    108:"",
-    109:"",
-    110:"",
-    111:"",
-
-    201:"",
-    202:"",
-    203:"",
-    204:"",
-    205:"",
-    206:"",
-    207:"",
-    208:"",
-    209:"",
-    210:"",
-    211:"",
-
-    301:"",
-    302:"",
-    303:"",
-    304:"",
-    305:"",
-    306:"",
-    307:"",
-    308:"",
-    309:"",
-    310:"",
-    311:"",
-
-    401:"",
-    402:"",
-    403:"",
-    404:"",
-    405:"",
-    406:"",
-    407:"",
-    408:"",
-    409:"",
-    410:"",
-    411:"",
-
-    501:"",
-    502:"",
-    503:"",
-    504:"",
-    505:"",
-    506:"",
-    507:"",
-    508:"",
-    509:"",
-    510:"",
-    511:"",
-
-    "crns":"",
-    }
+    display_schedule = dict()
 
     display_schedule_template = display_schedule.copy()
 
@@ -181,12 +120,27 @@ def schedule_translate(all_schedule,crn_dict):
         display_schedule = display_schedule_template.copy()
         
     return translated_schedule_list
+def conflict_check(schedule):
+    time_conflict_check = list()
+    for section in schedule:
+        time_conflict_check += course.time(section)
+        if len(time_conflict_check) != len(   Counter(time_conflict_check).keys()):
+            return False
+    return True
 
-def create_schedules(input):
+def create_schedules(raw_input):
+    input = raw_input.split(",")
     schedule =  []
     crn_dict = dict()
-
-    #burada olabilecek tüm schedule olasılıklarını oluşturuyorum
+    
+    def conflict_check(schedule):
+        time_conflict_check = list()
+        for section in schedule:
+            time_conflict_check += course.time(section)
+            if len(time_conflict_check) != len(   Counter(time_conflict_check).keys()):
+                return False
+        return True
+    
     for lecture in input:
         lesson = course.get(lecture)
         schedule.append(lesson)
@@ -194,22 +148,9 @@ def create_schedules(input):
 
         for crn in crn_list:
             crn_dict[crn] = lecture
-        
+    
 
-    all_schedule = list(itertools.product(*schedule))
-
-    #burada çakışma yaşanan scheduleları siliyorum
-    time_conflict_check = list()
-    to_be_removed = list()
-    for schedule in all_schedule:
-        for section in schedule:
-            time_conflict_check += course.time(section)
-        if len(time_conflict_check) != len(Counter(time_conflict_check).keys()):
-            to_be_removed.append(schedule)
-        time_conflict_check = []
-
-    for remove in to_be_removed:
-        all_schedule.remove(remove)
+    all_schedule = [p for p in itertools.product(*schedule) if conflict_check(p)]
 
     return course.schedule_translate(all_schedule,crn_dict)
 
