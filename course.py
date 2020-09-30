@@ -4,9 +4,12 @@ import itertools
 from collections import Counter
 import numpy as np
 
-class CourseClass:
-    def __init__(self,info):
-        self.info = info
+##########################
+def is_same(mylist,element):
+    for list_element in mylist:
+        if element == list_element:
+            return True
+    return False
 
 def prettify(course_name):
     course_name_list = course_name.split("_")
@@ -55,6 +58,8 @@ def time(class_list):
         "4:30 pm":9,
         "5:30 pm":10,
         "6:30 pm":11,
+        "7:30 pm":12,
+        "8:30 pm":13,
     }
 
     return_list = list()
@@ -95,9 +100,6 @@ def get_all_crn(course_list):
 def schedule_translate(all_schedule,crn_dict):
     
     display_schedule = dict()
-
-    display_schedule_template = display_schedule.copy()
-
     translated_schedule_list = list()
     crn_list = list()
 
@@ -115,9 +117,9 @@ def schedule_translate(all_schedule,crn_dict):
         display_schedule["crns"] = crn_list
         crn_list = []
         lecture_time_list = []
-        translated_schedule_list.append(display_schedule)
+        translated_schedule_list.append(display_schedule.copy())
 
-        display_schedule = display_schedule_template.copy()
+        display_schedule.clear()
         
     return translated_schedule_list
 def conflict_check(schedule):
@@ -133,17 +135,24 @@ def create_schedules(raw_input):
     schedule =  []
     crn_dict = dict()
     
-    def conflict_check(schedule):
-        time_conflict_check = list()
-        for section in schedule:
-            time_conflict_check += course.time(section)
-            if len(time_conflict_check) != len(   Counter(time_conflict_check).keys()):
-                return False
-        return True
-    
+    check_dict = dict()
     for lecture in input:
         lesson = course.get(lecture)
-        schedule.append(lesson)
+
+        for index,section in enumerate(lesson):
+            test = section.copy()
+            test[-1] = ""
+
+            if lecture not in check_dict:
+                check_dict[lecture] = []
+                check_dict[lecture].append(test)
+            elif not is_same(check_dict[lecture],test):
+                check_dict[lecture].append(test)
+            else:
+                lesson[index] = ""
+        
+        lesson = list(filter(lambda a: a!="", lesson))
+        schedule.append(lesson)   
         crn_list = course.get_all_crn(lesson)
 
         for crn in crn_list:
