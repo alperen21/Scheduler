@@ -19,3 +19,17 @@ take CS 204 Lab Session with CS 204, so you should type cs_204,cs_204R if you pl
 After you are finished, click on schedule button. Depending on how many different sections are offered by the university this year, next page may load instantly or take couple minutes to load.
 
 Each schedule table is a distinct schedule. You can click on view CRNs button to get example CRN codes for this schedule.
+
+## How Does It Work?
+
+This project was developed using Flask Framework, Bootstrap, Custom CSS and HTML. The data comes from a REST Api that I developed (you can view its code on this github account).
+
+## Future Versions
+
+This is a very early version of this project. The reason why I deployed it early was to catch up with registration period of the university. 
+In future, I plan to make the user interface more user friendly by removing specific input rules and make the source code more flexible.
+I also plan to add a "report a bug" form that automatically sends an email to my personal email account using SMTP port of gmail.
+I plan to tweak the design of the app to make it more appealing.
+On top of that, I plan to add a "load more button" to the bottom of the page after 3 schedule alternatives to boost the performance because depending on the courses, it sometimes takes too long to render the Jinja Template.
+I also plan to run Bootstrap css and javascript files locally to eliminate a whole category of possible issues.
+I also plan to add a message on the top of the page if the user selects a class that does not have meeting hour.
