@@ -3,9 +3,9 @@
 ## Background
 
 The university offers several different sections of the same courses, this causes an enormous amount of combination of different sections.
-Having access to every combinations has several benefits: first of all, one can choose the best schedule for their own individual needs (such as not having to wake up too early or the desire to take a particular section).
-and it can enable one to act swiftly during the course registration days (for example, if one section is full; the user can quickly select one of the alternative schedules)
-Manually generating all possible combinations is very challenging at best and impossible at worst. Thus, I developed this easy-to-use website to make creating course schedules easier for all students.
+Having access to every combination has several benefits: first of all, one can choose the best schedule for their own individual needs (such as not having to wake up too early or the desire to take a particular section)
+and it can enable one to act swiftly during the course registration days (for example, if one section is full; the user can quickly select one of the alternative schedules).
+Manually generating all possible scenarios is very challenging at best and impossible at worst. Thus, I developed this easy-to-use website to make creating course schedules easier for all students.
 
 ## How To Use It?
 
